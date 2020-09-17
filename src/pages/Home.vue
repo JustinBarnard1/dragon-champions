@@ -2,7 +2,7 @@
 <div>
   <div class="home row">
     <div class="col-12 justify-content-center">
-      <button type="button" class="btn btn-danger my-3">Fight</button>
+      <button class="btn btn-danger my-3" @click="startGame">Fight</button>
     </div>
     <div class="col-6 ">
       <div class="row">
@@ -40,8 +40,16 @@ export default {
     },
     champions(){
       return this.$store.state.champions;
+    },
+    getGame(){
+      return this.$store.state.game;
     }
   },
+  methods: {
+    startGame(){
+      this.$store.dispatch('startGame',{dragon:this.getGame.dragon, champion:this.getGame.champion })
+    }
+ }
 };
 </script>
 <style scoped>

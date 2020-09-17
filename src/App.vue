@@ -1,19 +1,17 @@
 <template>
   <div id="app" class="container-fluid bg-dark">
     <navbar />
-    <home />
+    <router-view/>
     <my-footer />
   </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
 import MyFooter from "./components/MyFooter";
 export default {
   components: {
     Navbar,
-    Home,
     MyFooter,
   },
 };

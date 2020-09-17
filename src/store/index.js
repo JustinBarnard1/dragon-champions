@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from "../router"
 import { api } from '../services/axiosService'
 
 Vue.use(Vuex)
@@ -9,9 +10,10 @@ export default new Vuex.Store({
     dragons: [],
     champions: [],
     game: {
-      dragon: "",
-      champion: ""
-    }
+      dragon: null,
+      champion: null
+    },
+    activeGame:{}
   },
   mutations: {
     setAllDragons(state, dragons) {
@@ -25,7 +27,11 @@ export default new Vuex.Store({
     },
     setGameChampion(state, championid){
       state.game.champion = championid
+    },
+    setActiveGame(state, gameId){
+      state.activeGame = gameId
     }
+
   },
   actions: {
     async getAllDragons({ commit, dispatch }) {
@@ -41,7 +47,11 @@ export default new Vuex.Store({
     },
     selectChampion({commit, dispatch}, championid){
       commit("setGameChampion", championid)
-      console.log(this.state.game);
+    },
+    async startGame({commit, dispatch}, gameData){
+      let res = await api.post('games', gameData)
+      commit('setActiveGame', res.data)
+      router.push({name:'Game', params:{id: res.data.id}})
     }
   },
   modules: {
