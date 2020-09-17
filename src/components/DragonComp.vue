@@ -1,5 +1,5 @@
 <template>
-  <div class="dragon">
+  <div class="dragon col-6">
     <div class="card my-2">
       <img :src="dragonProps.imgUrl" alt />
       <h3>{{dragonProps.name}}</h3>
@@ -25,6 +25,6 @@ export default {
 
 <style scoped>
 img {
-  max-height: 300px;
+  height: 300px;
 }
 </style>
