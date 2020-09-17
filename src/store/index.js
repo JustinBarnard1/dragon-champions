@@ -19,6 +19,12 @@ export default new Vuex.Store({
     },
     setAllChampions(state, champions){
       state.champions = champions
+    },
+    setGameDragon(state, dragonid){
+      state.game.dragon = dragonid
+    },
+    setGameChampion(state, championid){
+      state.game.champion = championid
     }
   },
   actions: {
@@ -29,6 +35,13 @@ export default new Vuex.Store({
     async getAllChampions({commit, dispatch}){
       let res = await api.get('champions')
       commit('setAllChampions', res.data)
+    },
+    selectDragon({commit, dispatch}, dragonid){
+      commit("setGameDragon", dragonid)
+    },
+    selectChampion({commit, dispatch}, championid){
+      commit("setGameChampion", championid)
+      console.log(this.state.game);
     }
   },
   modules: {

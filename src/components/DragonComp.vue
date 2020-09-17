@@ -1,5 +1,5 @@
 <template>
-  <div class="dragon col-6">
+  <div class="dragon col-6" @click="selectDragon">
     <div class="card my-2">
       <img :src="dragonProps.imgUrl" alt />
       <h3>{{dragonProps.name}}</h3>
@@ -17,7 +17,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    selectDragon(){
+      this.$store.dispatch('selectDragon', this.dragonProps.id)
+    }
+  },
   components: {},
 };
 </script>

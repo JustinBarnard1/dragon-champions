@@ -1,5 +1,5 @@
 <template>
-  <div class="champion col-6">
+  <div class="champion col-6" @click="selectChampion">
     <div class="card my-2">
       <img :src="championProps.imgUrl" alt />
       <h3>{{championProps.name}}</h3>
@@ -17,7 +17,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    selectChampion(){
+      this.$store.dispatch('selectChampion', this.championProps.id)
+    }
+  },
   components: {},
 };
 </script>
