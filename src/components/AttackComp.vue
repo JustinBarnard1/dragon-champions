@@ -15,9 +15,13 @@ export default {
   computed: {},
   methods: {
     attack() {
-      id = attackProp.id;
+      let id = this.$route.params.id;
       console.log(id);
-      // this.$store.dispatch();
+      let payload = { 
+        attack: this.attackProp.name,
+        id: id
+      }
+      this.$store.dispatch('attack', payload);
     },
   },
   components: {},

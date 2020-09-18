@@ -27,6 +27,9 @@ export default {
   data() {
     return {};
   },
+  mounted(){
+    this.$store.dispatch("getActiveGame", this.$route.params.id)
+  },
   computed: {
     attacks() {
       return this.$store.state.activeChampion.attacks;

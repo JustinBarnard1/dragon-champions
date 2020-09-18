@@ -68,7 +68,7 @@ export default new Vuex.Store({
       router.push({ name: 'Game', params: { id: res.data.id } })
     },
     async attack({ commit, dispatch }, attackData) {
-      let res = await api.put('games/' + attackData.id, attackData.damage)
+      let res = await api.put('games/' + attackData.id, attackData)
       console.log(res);
     }
   },
