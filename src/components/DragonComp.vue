@@ -18,9 +18,9 @@ export default {
   },
   computed: {},
   methods: {
-    selectDragon(){
-      this.$store.dispatch('selectDragon', this.dragonProps.id)
-    }
+    selectDragon() {
+      this.$store.dispatch("selectDragon", this.dragonProps);
+    },
   },
   components: {},
 };

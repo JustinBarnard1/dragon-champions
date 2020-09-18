@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="container-fluid bg-dark">
+  <div id="app" class="container-fluid bg-dark text-light">
     <navbar />
-    <router-view/>
+    <router-view />
     <my-footer />
   </div>
 </template>

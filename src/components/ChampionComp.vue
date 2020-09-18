@@ -18,9 +18,9 @@ export default {
   },
   computed: {},
   methods: {
-    selectChampion(){
-      this.$store.dispatch('selectChampion', this.championProps.id)
-    }
+    selectChampion() {
+      this.$store.dispatch("selectChampion", this.championProps);
+    },
   },
   components: {},
 };
@@ -29,7 +29,6 @@ export default {
 
 <style>
 img {
-
   height: 300px;
 }
 </style>
